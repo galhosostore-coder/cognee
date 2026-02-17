@@ -70,24 +70,24 @@ services:
   # NOTE: Frontend is a work in progress and supports minimum amount of features required to be functional.
   # If you want to use Cognee with a UI environment you can integrate the Cognee MCP Server into Cursor / Claude Desktop / Visual Studio Code (through Cline/Roo)
   frontend:
-  container_name: frontend
-  restart: always
-  environment:
-    - NEXT_PUBLIC_BACKEND_API_URL=${NEXT_PUBLIC_BACKEND_API_URL:-http://localhost:8000}
-    - FRONTEND_HOST_PORT=${FRONTEND_HOST_PORT:-3003}
-  profiles:
-    - ui
-  build:
-    context: ./cognee-frontend
-    dockerfile: Dockerfile
-  volumes:
-    - ./cognee-frontend/src:/app/src
-    - ./cognee-frontend/public:/app/public
-  ports:
-    - "${FRONTEND_HOST_PORT:-3003}:3000"
-    # - 9229:9229 # Debugging
-  networks:
-    - cognee-network
+    container_name: frontend
+    restart: always
+    environment:
+      - NEXT_PUBLIC_BACKEND_API_URL=${NEXT_PUBLIC_BACKEND_API_URL:-http://localhost:8000}
+      - FRONTEND_HOST_PORT=${FRONTEND_HOST_PORT:-3003}
+    profiles:
+      - ui
+    build:
+      context: ./cognee-frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./cognee-frontend/src:/app/src
+      - ./cognee-frontend/public:/app/public
+    ports:
+      - "${FRONTEND_HOST_PORT:-3003}:3000"
+      # - 9229:9229 # Debugging
+    networks:
+      - cognee-network
 
 
   neo4j:
