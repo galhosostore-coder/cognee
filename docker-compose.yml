@@ -7,9 +7,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./cognee:/app/cognee
-      - .env:/app/.env
     environment:
       - DEBUG=false # Change to true if debugging
       - HOST=0.0.0.0
