@@ -133,7 +133,7 @@ services:
       POSTGRES_DB: cognee_db
       # - postgres_data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - 5434:5432
     networks:
       - cognee-network
 
@@ -143,7 +143,7 @@ services:
     profiles:
       - redis
     ports:
-      - "6379:6379"
+      - "6378:6379"
     networks:
       - cognee-network
     volumes:
